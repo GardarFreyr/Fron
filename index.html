@@ -1,0 +1,624 @@
+<!doctype html>
+<html lang="is">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FRÓN fasteignamiðlun – Rétta eignin. Rétta ákvörðunin.</title>
+<meta name="description" content="FRÓN fasteignamiðlun, Háaleitisbraut 109, Reykjavík. Sala fasteigna, skipa og fyrirtækja, ókeypis verðmat og leigumiðlun. Sími 519 1212.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#FAF9F6">
+<link rel="preload" as="image" href="img/hero.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&amp;family=Instrument+Sans:wght@400;500;600&amp;family=Jost:wght@400;500&amp;display=swap">
+<style>
+body{margin:0;background:#FAF9F6}
+*{box-sizing:border-box}
+a{color:#172B27}a:hover{color:#7A6544}
+.wrap{max-width:1280px;margin:0 auto;padding:0 40px}
+.serif{font-family:'Cormorant Garamond',Georgia,serif}
+.eyebrow{font-size:12px;letter-spacing:.22em;text-transform:uppercase;font-weight:600}
+.navlink{color:#202522;text-decoration:none;font-size:14px;font-weight:500;padding:12px 2px;position:relative}
+.navlink::after{content:"";position:absolute;left:0;right:0;bottom:6px;height:1px;background:#A38B65;transform:scaleX(0);transform-origin:left;transition:transform .35s cubic-bezier(.2,.7,.2,1)}
+.navlink:hover{color:#172B27}.navlink:hover::after{transform:scaleX(1)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:0 26px;border-radius:2px;font-size:15px;font-weight:600;text-decoration:none;transition:background .3s,color .3s,border-color .3s,transform .3s;cursor:pointer;border:1px solid transparent;font-family:inherit}
+.btn-dark{background:#172B27;color:#FAF9F6}.btn-dark:hover{background:#0E1C19;color:#FAF9F6}
+.btn-light{background:#FAF9F6;color:#172B27}.btn-light:hover{background:#FFFFFF;color:#172B27}
+.btn-ghost{background:transparent;color:#FAF9F6;border-color:rgba(250,249,246,.55)}.btn-ghost:hover{border-color:#FAF9F6;color:#FAF9F6;background:rgba(250,249,246,.08)}
+.btn-brass{background:#A38B65;color:#14201D}.btn-brass:hover{background:#B79E77;color:#14201D}
+.btn .arr{transition:transform .35s cubic-bezier(.2,.7,.2,1)}.btn:hover .arr{transform:translateX(4px)}
+.menu-btn{display:none}
+.hero{position:relative;height:860px;overflow:hidden;background:#172B27}
+.hero-img{position:absolute;inset:-40px 0 0 0;width:100%;height:calc(100% + 40px);object-fit:cover;object-position:center 45%;animation:settle 2.6s cubic-bezier(.2,.7,.2,1) both}
+@keyframes settle{from{transform:scale(1.07)}to{transform:scale(1)}}
+@keyframes rise{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
+.rise{animation:rise 1.1s cubic-bezier(.2,.7,.2,1) both}
+.d1{animation-delay:.15s}.d2{animation-delay:.3s}.d3{animation-delay:.45s}.d4{animation-delay:.6s}
+@supports (animation-timeline: view()){
+.reveal{animation:rise linear both;animation-timeline:view();animation-range:entry 0% entry 35%}
+.parallax{animation:drift linear both;animation-timeline:scroll(root);animation-range:0 900px}
+@keyframes drift{from{transform:translateY(0)}to{transform:translateY(90px)}}
+}
+.search{display:grid;grid-template-columns:repeat(5,minmax(0,1fr)) auto;gap:0;align-items:stretch}
+.field{display:flex;flex-direction:column;gap:6px;padding:18px 22px;border-right:1px solid #E4E1D9}
+.field label{font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:600;color:#5B625E}
+.field{position:relative}
+.field::after{content:"";position:absolute;right:26px;bottom:31px;width:7px;height:7px;border-right:1.5px solid #172B27;border-bottom:1.5px solid #172B27;transform:rotate(45deg);pointer-events:none}
+.field select{appearance:none;-webkit-appearance:none;border:0;background:transparent;font:500 16px 'Instrument Sans',sans-serif;color:#202522;padding:4px 22px 4px 0;min-height:32px;cursor:pointer}
+.field select:focus-visible{outline:2px solid #A38B65;outline-offset:4px}
+.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:48px 32px}
+.card{display:flex;flex-direction:column;text-decoration:none;color:#202522}
+.card:hover{color:#202522}
+.card .ph{position:relative;overflow:hidden;aspect-ratio:4/3;background:#E4E1D9}
+.card .ph img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 1.1s cubic-bezier(.2,.7,.2,1),filter .6s}
+.card:hover .ph img{transform:scale(1.045)}
+.card .veil{position:absolute;inset:0;background:rgba(23,43,39,0);transition:background .5s}
+.card:hover .veil{background:rgba(23,43,39,.18)}
+.card .open{position:absolute;right:16px;bottom:16px;background:#FAF9F6;color:#172B27;font-size:13px;font-weight:600;padding:10px 14px;display:flex;gap:8px;align-items:center;opacity:0;transform:translateY(8px);transition:opacity .45s,transform .45s cubic-bezier(.2,.7,.2,1)}
+.card:hover .open,.card:focus-visible .open{opacity:1;transform:none}
+.card .addr{transition:color .3s}.card:hover .addr{color:#7A6544}
+.svc{display:grid;grid-template-columns:90px minmax(0,1.1fr) minmax(0,1.4fr);gap:32px;padding:34px 0;border-top:1px solid rgba(250,249,246,.16);align-items:baseline;transition:padding .45s cubic-bezier(.2,.7,.2,1)}
+.svc:hover{padding-left:14px}
+.svc:hover .svc-n{color:#C9B48F}
+.split{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:96px;align-items:center}
+.vgrid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:0}
+.inp{display:flex;flex-direction:column;gap:8px}
+.inp label{font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:#3E4541}
+.inp input,.inp textarea{font:16px 'Instrument Sans',sans-serif;color:#202522;background:#FAF9F6;border:1px solid #CFCBC1;border-radius:2px;padding:14px 16px;min-height:50px;transition:border-color .3s,background .3s}
+.inp input:focus,.inp textarea:focus{outline:none;border-color:#172B27;background:#FFFFFF}
+.team{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:32px}
+.person .pp{overflow:hidden;aspect-ratio:4/5;background:#E4E1D9}
+.person .pp img{width:100%;height:100%;object-fit:cover;object-position:center 20%;display:block;filter:grayscale(.25);transition:transform 1s cubic-bezier(.2,.7,.2,1),filter .6s}
+.person:hover .pp img{transform:scale(1.03);filter:grayscale(0)}
+.contact{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,5fr);gap:80px}
+.big-link{color:#FAF9F6;text-decoration:none;border-bottom:1px solid rgba(163,139,101,.6);transition:border-color .3s,color .3s}
+.big-link:hover{color:#E6D9C2;border-color:#E6D9C2}
+.foot-link{color:rgba(250,249,246,.72);text-decoration:none;font-size:14px;line-height:2}
+.foot-link:hover{color:#FAF9F6}
+.mobile-panel{display:none}
+.mobile-panel[hidden]{display:none !important}
+[hidden]{display:none !important}
+html{scroll-behavior:smooth}
+:focus-visible{outline:2px solid #A38B65;outline-offset:3px}
+#eignir,#um-okkur,#thjonusta,#verdmat,#starfsfolk,#samband{scroll-margin-top:84px}
+@media (max-width: 1080px){
+.search{grid-template-columns:repeat(3,minmax(0,1fr))}
+.search .go{grid-column:1 / -1}
+.field{border-bottom:1px solid #E4E1D9}
+.cards{grid-template-columns:repeat(2,minmax(0,1fr))}
+.split{gap:56px}
+}
+@media (max-width: 900px){
+.wrap{padding:0 20px}
+.navlinks,.nav-cta,.topbar-extra{display:none !important}
+.menu-btn{display:inline-flex}
+.mobile-panel{display:block}
+.hero{height:720px}
+.split,.vgrid,.contact{grid-template-columns:minmax(0,1fr)}
+.split{gap:48px}.contact{gap:56px}
+.team{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+.svc{grid-template-columns:56px minmax(0,1fr);gap:8px 20px}
+.svc .svc-d{grid-column:2}
+}
+@media (max-width: 600px){
+.search{grid-template-columns:minmax(0,1fr)}
+.field{border-right:0}
+.cards,.team{grid-template-columns:minmax(0,1fr)}
+.hero{height:680px}
+}
+@media (prefers-reduced-motion: reduce){
+*,*::before,*::after{animation:none !important;transition:none !important}
+}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"RealEstateAgent","name":"FRÓN fasteignamiðlun","url":"https://www.fron.is/","telephone":"+354 519 1212","email":"finnbogi@fron.is","address":{"@type":"PostalAddress","streetAddress":"Háaleitisbraut 109","postalCode":"108","addressLocality":"Reykjavík","addressCountry":"IS"},"openingHours":"Mo-Fr 09:00-16:30"}
+</script>
+</head>
+<body>
+<div id="top" style="font-family: 'Instrument Sans', system-ui, sans-serif; color: #202522; background: #FAF9F6; font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased;">
+
+  <!-- Demo notice -->
+  <div style="background: #EAE6DC; color: #3E4541; font-size: 13px; text-align: center; padding: 9px 20px; line-height: 1.5;">
+    <strong style="font-weight: 600; color: #172B27;">Hugmynd að nýrri forsíðu</strong> · óskuldbindandi sýnishorn frá Garðar Vefur · ekki opinber vefur FRÓN fasteignamiðlunar
+  </div>
+
+  <!-- Header -->
+  <header style="position: sticky; top: 0; z-index: 50; background: rgba(250,249,246,.92); backdrop-filter: saturate(140%) blur(14px); -webkit-backdrop-filter: saturate(140%) blur(14px); border-bottom: 1px solid #E4E1D9;">
+    <div class="wrap" style="display: flex; align-items: center; justify-content: space-between; gap: 24px; height: 84px;">
+      <a href="#top" aria-label="FRÓN fasteignamiðlun – forsíða" style="display: flex; flex-direction: column; align-items: flex-start; text-decoration: none; color: #172B27; line-height: 1;">
+        <span style="font-family: Jost, 'Instrument Sans', sans-serif; font-weight: 400; font-size: 28px; letter-spacing: .32em; margin-right: -.32em;">FRÓN</span>
+        <span style="font-family: Jost, 'Instrument Sans', sans-serif; font-weight: 400; font-size: 10.5px; letter-spacing: .27em; margin-top: 7px; color: #3E4541;">Fasteignamiðlun</span>
+      </a>
+      <nav class="navlinks" aria-label="Aðalvalmynd" style="display: flex; gap: 34px; align-items: center;">
+        <a class="navlink" href="#top">Forsíða</a>
+        <a class="navlink" href="#eignir">Söluskrá</a>
+        <a class="navlink" href="#verdmat">Verðmat</a>
+        <a class="navlink" href="#um-okkur">Um okkur</a>
+        <a class="navlink" href="#samband">Hafa samband</a>
+      </nav>
+      <div style="display: flex; align-items: center; gap: 22px;">
+        <a class="topbar-extra" href="tel:5191212" style="text-decoration: none; font-size: 14px; font-weight: 500; color: #202522; white-space: nowrap;">519 1212</a>
+        <a class="btn btn-dark nav-cta" href="#verdmat">Fá verðmat</a>
+        <button class="menu-btn btn" type="button" aria-expanded="false" aria-controls="farsimavalmynd" aria-label="Opna valmynd" style="background: transparent; color: #172B27; border-color: #CFCBC1; padding: 0 14px; min-width: 48px;">
+          <svg width="20" height="14" viewBox="0 0 20 14" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M0 1h20M0 7h20M0 13h20"></path></svg>
+        </button>
+      </div>
+    </div>
+    
+      <nav id="farsimavalmynd" class="mobile-panel" hidden aria-label="Valmynd" style="border-top: 1px solid #E4E1D9; background: #FAF9F6; padding: 8px 20px 24px;">
+        <a href="#top" data-close-menu style="display: block; padding: 14px 0; font-size: 20px; color: #172B27; text-decoration: none; border-bottom: 1px solid #ECE9E2;">Forsíða</a>
+        <a href="#eignir" data-close-menu style="display: block; padding: 14px 0; font-size: 20px; color: #172B27; text-decoration: none; border-bottom: 1px solid #ECE9E2;">Söluskrá</a>
+        <a href="#verdmat" data-close-menu style="display: block; padding: 14px 0; font-size: 20px; color: #172B27; text-decoration: none; border-bottom: 1px solid #ECE9E2;">Verðmat</a>
+        <a href="#um-okkur" data-close-menu style="display: block; padding: 14px 0; font-size: 20px; color: #172B27; text-decoration: none; border-bottom: 1px solid #ECE9E2;">Um okkur</a>
+        <a href="#samband" data-close-menu style="display: block; padding: 14px 0; font-size: 20px; color: #172B27; text-decoration: none; border-bottom: 1px solid #ECE9E2;">Hafa samband</a>
+        <div style="display: flex; gap: 12px; margin-top: 20px; flex-wrap: wrap;">
+          <a class="btn btn-dark" href="#verdmat" data-close-menu>Fá verðmat</a>
+          <a class="btn" href="tel:5191212" style="border-color: #CFCBC1; color: #172B27;">Hringja 519 1212</a>
+        </div>
+      </nav>
+    
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero" aria-labelledby="hero-title">
+      <img class="hero-img parallax" src="img/hero.jpg" alt="Svart nútímalegt einbýlishús í íslensku landslagi undir skýjuðum himni">
+      <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(14,28,25,.08) 0%, rgba(14,28,25,.18) 45%, rgba(14,28,25,.78) 100%);"></div>
+      <div class="wrap" style="position: relative; height: 100%; display: flex; flex-direction: column; justify-content: flex-end; padding-bottom: 150px;">
+        <p class="eyebrow rise" style="margin: 0 0 22px; color: #E6D9C2;">FRÓN fasteignamiðlun · Háaleitisbraut 109, Reykjavík</p>
+        <h1 id="hero-title" class="serif rise d1" style="margin: 0; color: #FAF9F6; font-weight: 500; font-size: clamp(52px, 8.4vw, 116px); line-height: .98; letter-spacing: -.01em; max-width: 920px;">Rétta eignin.<br><em style="font-style: italic; color: #E6D9C2;">Rétta ákvörðunin.</em></h1>
+        <p class="rise d2" style="margin: 30px 0 0; color: rgba(250,249,246,.9); font-size: clamp(17px, 1.6vw, 20px); line-height: 1.55; max-width: 520px;">Fagleg fasteignamiðlun byggð á reynslu, þekkingu og traustum vinnubrögðum.</p>
+        <div class="rise d3" style="display: flex; gap: 14px; margin-top: 38px; flex-wrap: wrap;">
+          <a class="btn btn-light" href="#eignir">Skoða eignir <span class="arr" aria-hidden="true">→</span></a>
+          <a class="btn btn-ghost" href="#verdmat">Fá verðmat</a>
+        </div>
+      </div>
+      <p style="position: absolute; right: 20px; bottom: 112px; margin: 0; font-size: 11px; color: rgba(250,249,246,.62); letter-spacing: .04em;">Mynd: Ben Eaton / Unsplash – til skýringar, ekki eign á skrá</p>
+    </section>
+
+    <!-- Search -->
+    <section aria-labelledby="leit-title" style="position: relative; z-index: 5; margin-top: -84px;">
+      <div class="wrap">
+        <div class="rise d4" style="background: #FFFFFF; box-shadow: 0 30px 60px -30px rgba(23,43,39,.35), 0 0 0 1px rgba(23,43,39,.05);">
+          <div style="display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; padding: 18px 22px; border-bottom: 1px solid #E4E1D9;">
+            <h2 id="leit-title" style="margin: 0; font-size: 15px; font-weight: 600; color: #172B27;">Finndu eignina</h2>
+            <span style="font-size: 12px; color: #5B625E; background: #F1F0EC; padding: 5px 10px;">Sýnishorn: síurnar eru ekki tengdar. Hnappurinn opnar núverandi söluskrá á fron.is.</span>
+          </div>
+          <form class="search" action="https://www.fron.is/soluskra" method="get" target="_blank">
+            <div class="field">
+              <label for="s-svaedi">Svæði</label>
+              <select id="s-svaedi">
+                <option>Öll svæði</option>
+                <option>Höfuðborgarsvæðið</option>
+                <option>Suðurland</option>
+                <option>Vesturland</option>
+                <option>Norðurland vestra</option>
+                <option>Norðurland eystra</option>
+                <option>Austurland</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="s-tegund">Tegund eignar</label>
+              <select id="s-tegund">
+                <option>Allar tegundir</option>
+                <option>Einbýli</option>
+                <option>Raðhús</option>
+                <option>Parhús</option>
+                <option>Fjölbýli</option>
+                <option>Sumarhús</option>
+                <option>Atvinnuhúsnæði</option>
+                <option>Lóð</option>
+                <option>Jörð / bújörð</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="s-verd">Verðbil</label>
+              <select id="s-verd">
+                <option>Öll verð</option>
+                <option>Allt að 20 mkr.</option>
+                <option>20–40 mkr.</option>
+                <option>40–60 mkr.</option>
+                <option>60–80 mkr.</option>
+                <option>80–100 mkr.</option>
+                <option>100–150 mkr.</option>
+                <option>Yfir 150 mkr.</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="s-staerd">Stærð</label>
+              <select id="s-staerd">
+                <option>Allar stærðir</option>
+                <option>Allt að 50 m²</option>
+                <option>50–80 m²</option>
+                <option>80–110 m²</option>
+                <option>110–150 m²</option>
+                <option>150–200 m²</option>
+                <option>200–300 m²</option>
+                <option>Yfir 300 m²</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="s-herb">Herbergi</label>
+              <select id="s-herb">
+                <option>Fjöldi herbergja</option>
+                <option>1 herbergi</option>
+                <option>2 herbergi</option>
+                <option>3 herbergi</option>
+                <option>4 herbergi</option>
+                <option>5 herbergi</option>
+                <option>6+ herbergi</option>
+              </select>
+            </div>
+            <div class="go" style="display: flex; padding: 12px;">
+              <button class="btn btn-dark" type="submit" style="width: 100%; min-height: 60px; padding: 0 30px; white-space: nowrap;">Leita að eign <span class="arr" aria-hidden="true">→</span></button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Listings -->
+    <section id="eignir" aria-labelledby="eignir-title" style="padding: 140px 0 120px;">
+      <div class="wrap">
+        <div class="reveal" style="display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; flex-wrap: wrap; margin-bottom: 56px;">
+          <div>
+            <p class="eyebrow" style="margin: 0 0 16px; color: #7A6544;">Söluskrá</p>
+            <h2 id="eignir-title" class="serif" style="margin: 0; font-size: clamp(42px, 5vw, 68px); font-weight: 500; line-height: 1; color: #172B27;">Eignir á skrá</h2>
+            <p style="margin: 18px 0 0; color: #5B625E; font-size: 14px; max-width: 560px;">Raunverulegar eignir úr söluskrá FRÓN, sóttar af fron.is 15. október 2026. Verð og staða geta hafa breyst – hvert spjald opnar eignina á núverandi vef.</p>
+          </div>
+          <a class="btn" href="https://www.fron.is/soluskra" target="_blank" rel="noopener" style="border-color: #172B27; color: #172B27;">Sjá alla söluskrána <span class="arr" aria-hidden="true">→</span></a>
+        </div>
+        <div class="cards">
+          
+            <a class="card reveal" href="https://www.fron.is/eign/929487" target="_blank" rel="noopener">
+              <div class="ph">
+                <img src="img/l929487.jpg" alt="Rautt timburhús á grænu túni undir fjallshlíð" loading="lazy">
+                <div class="veil"></div>
+                <span style="position: absolute; left: 16px; top: 16px; background: rgba(250,249,246,.94); color: #172B27; font-size: 11px; letter-spacing: .16em; text-transform: uppercase; font-weight: 600; padding: 7px 11px;">Einbýli</span>
+                <span class="open">Skoða eign <span aria-hidden="true">→</span></span>
+              </div>
+              <div style="padding-top: 22px; display: flex; flex-direction: column; gap: 4px;">
+                <div style="display: flex; justify-content: space-between; align-items: baseline; gap: 16px;">
+                  <h3 class="serif addr" style="margin: 0; font-size: 30px; font-weight: 500; line-height: 1.1;">Bollastaðir 1</h3>
+                </div>
+                <p style="margin: 0; font-size: 14px; color: #5B625E;">276 Kjós</p>
+                <div style="display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-top: 16px; padding-top: 16px; border-top: 1px solid #E4E1D9; flex-wrap: wrap;">
+                  <span style="font-size: 18px; font-weight: 600; color: #172B27;">149.900.000 kr.</span>
+                  <span style="font-size: 14px; color: #3E4541; display: flex; gap: 14px;"><span>195 m²</span><span aria-hidden="true" style="color: #CFCBC1;">|</span><span>4 svefnherb.</span></span>
+                </div>
+              </div>
+            </a>
+          
+            <a class="card reveal" href="https://www.fron.is/eign/929489" target="_blank" rel="noopener">
+              <div class="ph">
+                <img src="img/l929489.jpg" alt="Hvítt fjölbýlishús með haustlitum trjám" loading="lazy">
+                <div class="veil"></div>
+                <span style="position: absolute; left: 16px; top: 16px; background: rgba(250,249,246,.94); color: #172B27; font-size: 11px; letter-spacing: .16em; text-transform: uppercase; font-weight: 600; padding: 7px 11px;">Fjölbýli</span>
+                <span class="open">Skoða eign <span aria-hidden="true">→</span></span>
+              </div>
+              <div style="padding-top: 22px; display: flex; flex-direction: column; gap: 4px;">
+                <div style="display: flex; justify-content: space-between; align-items: baseline; gap: 16px;">
+                  <h3 class="serif addr" style="margin: 0; font-size: 30px; font-weight: 500; line-height: 1.1;">Njörvasund 16</h3>
+                </div>
+                <p style="margin: 0; font-size: 14px; color: #5B625E;">104 Reykjavík (Vogar)</p>
+                <div style="display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-top: 16px; padding-top: 16px; border-top: 1px solid #E4E1D9; flex-wrap: wrap;">
+                  <span style="font-size: 18px; font-weight: 600; color: #172B27;">71.700.000 kr.</span>
+                  <span style="font-size: 14px; color: #3E4541; display: flex; gap: 14px;"><span>71 m²</span><span aria-hidden="true" style="color: #CFCBC1;">|</span><span>2 svefnherb.</span></span>
+                </div>
+              </div>
+            </a>
+          
+            <a class="card reveal" href="https://www.fron.is/eign/929491" target="_blank" rel="noopener">
+              <div class="ph">
+                <img src="img/l929491.jpg" alt="Bjálkahús með rauðu þaki og stórri verönd í hlíð" loading="lazy">
+                <div class="veil"></div>
+                <span style="position: absolute; left: 16px; top: 16px; background: rgba(250,249,246,.94); color: #172B27; font-size: 11px; letter-spacing: .16em; text-transform: uppercase; font-weight: 600; padding: 7px 11px;">Einbýli</span>
+                <span class="open">Skoða eign <span aria-hidden="true">→</span></span>
+              </div>
+              <div style="padding-top: 22px; display: flex; flex-direction: column; gap: 4px;">
+                <div style="display: flex; justify-content: space-between; align-items: baseline; gap: 16px;">
+                  <h3 class="serif addr" style="margin: 0; font-size: 30px; font-weight: 500; line-height: 1.1;">Stekkholt 20</h3>
+                </div>
+                <p style="margin: 0; font-size: 14px; color: #5B625E;">750 Fáskrúðsfjörður</p>
+                <div style="display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-top: 16px; padding-top: 16px; border-top: 1px solid #E4E1D9; flex-wrap: wrap;">
+                  <span style="font-size: 18px; font-weight: 600; color: #172B27;">65.900.000 kr.</span>
+                  <span style="font-size: 14px; color: #3E4541; display: flex; gap: 14px;"><span>238 m²</span><span aria-hidden="true" style="color: #CFCBC1;">|</span><span>4 svefnherb.</span></span>
+                </div>
+              </div>
+            </a>
+          
+            <a class="card reveal" href="https://www.fron.is/eign/930770" target="_blank" rel="noopener">
+              <div class="ph">
+                <img src="img/l930770.jpg" alt="Grænt parhús með garði og fjöllum í baksýn" loading="lazy">
+                <div class="veil"></div>
+                <span style="position: absolute; left: 16px; top: 16px; background: rgba(250,249,246,.94); color: #172B27; font-size: 11px; letter-spacing: .16em; text-transform: uppercase; font-weight: 600; padding: 7px 11px;">Parhús</span>
+                <span class="open">Skoða eign <span aria-hidden="true">→</span></span>
+              </div>
+              <div style="padding-top: 22px; display: flex; flex-direction: column; gap: 4px;">
+                <div style="display: flex; justify-content: space-between; align-items: baseline; gap: 16px;">
+                  <h3 class="serif addr" style="margin: 0; font-size: 30px; font-weight: 500; line-height: 1.1;">Vallargata 6B</h3>
+                </div>
+                <p style="margin: 0; font-size: 14px; color: #5B625E;">710 Seyðisfjörður</p>
+                <div style="display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-top: 16px; padding-top: 16px; border-top: 1px solid #E4E1D9; flex-wrap: wrap;">
+                  <span style="font-size: 18px; font-weight: 600; color: #172B27;">65.900.000 kr.</span>
+                  <span style="font-size: 14px; color: #3E4541; display: flex; gap: 14px;"><span>103 m²</span><span aria-hidden="true" style="color: #CFCBC1;">|</span><span>3 svefnherb.</span></span>
+                </div>
+              </div>
+            </a>
+          
+            <a class="card reveal" href="https://www.fron.is/eign/931506" target="_blank" rel="noopener">
+              <div class="ph">
+                <img src="img/l931506.jpg" alt="Nýlegt dökkt fjölbýli með sérverönd og grasflöt" loading="lazy">
+                <div class="veil"></div>
+                <span style="position: absolute; left: 16px; top: 16px; background: rgba(250,249,246,.94); color: #172B27; font-size: 11px; letter-spacing: .16em; text-transform: uppercase; font-weight: 600; padding: 7px 11px;">Fjölbýli</span>
+                <span class="open">Skoða eign <span aria-hidden="true">→</span></span>
+              </div>
+              <div style="padding-top: 22px; display: flex; flex-direction: column; gap: 4px;">
+                <div style="display: flex; justify-content: space-between; align-items: baseline; gap: 16px;">
+                  <h3 class="serif addr" style="margin: 0; font-size: 30px; font-weight: 500; line-height: 1.1;">Unnardalur 3B</h3>
+                </div>
+                <p style="margin: 0; font-size: 14px; color: #5B625E;">260 Njarðvík</p>
+                <div style="display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-top: 16px; padding-top: 16px; border-top: 1px solid #E4E1D9; flex-wrap: wrap;">
+                  <span style="font-size: 18px; font-weight: 600; color: #172B27;">54.600.000 kr.</span>
+                  <span style="font-size: 14px; color: #3E4541; display: flex; gap: 14px;"><span>76 m²</span><span aria-hidden="true" style="color: #CFCBC1;">|</span><span>1 svefnherb.</span></span>
+                </div>
+              </div>
+            </a>
+          
+            <a class="card reveal" href="https://www.fron.is/eign/929495" target="_blank" rel="noopener">
+              <div class="ph">
+                <img src="img/l929495.jpg" alt="Verönd með borði og stólum og útsýni til fjalla" loading="lazy">
+                <div class="veil"></div>
+                <span style="position: absolute; left: 16px; top: 16px; background: rgba(250,249,246,.94); color: #172B27; font-size: 11px; letter-spacing: .16em; text-transform: uppercase; font-weight: 600; padding: 7px 11px;">Fjölbýli</span>
+                <span class="open">Skoða eign <span aria-hidden="true">→</span></span>
+              </div>
+              <div style="padding-top: 22px; display: flex; flex-direction: column; gap: 4px;">
+                <div style="display: flex; justify-content: space-between; align-items: baseline; gap: 16px;">
+                  <h3 class="serif addr" style="margin: 0; font-size: 30px; font-weight: 500; line-height: 1.1;">Austurvegur 20</h3>
+                </div>
+                <p style="margin: 0; font-size: 14px; color: #5B625E;">710 Seyðisfjörður</p>
+                <div style="display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-top: 16px; padding-top: 16px; border-top: 1px solid #E4E1D9; flex-wrap: wrap;">
+                  <span style="font-size: 18px; font-weight: 600; color: #172B27;">47.900.000 kr.</span>
+                  <span style="font-size: 14px; color: #3E4541; display: flex; gap: 14px;"><span>225 m²</span><span aria-hidden="true" style="color: #CFCBC1;">|</span><span>4 svefnherb.</span></span>
+                </div>
+              </div>
+            </a>
+          
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="um-okkur" aria-labelledby="um-title" style="background: #F1F0EC; padding: 140px 0;">
+      <div class="wrap split">
+        <figure class="reveal" style="margin: 0; position: relative;">
+          <div style="overflow: hidden; aspect-ratio: 4/5; background: #E4E1D9;">
+            <img src="img/finnbogi.jpg" alt="Finnbogi Kristjánsson, eigandi FRÓN fasteignamiðlunar" style="width: 100%; height: 100%; object-fit: cover; object-position: center 20%; display: block;">
+          </div>
+          <figcaption style="margin-top: 16px; font-size: 13px; color: #5B625E;">Finnbogi Kristjánsson · eigandi og ábyrgðarmaður</figcaption>
+        </figure>
+        <div class="reveal">
+          <p class="eyebrow" style="margin: 0 0 20px; color: #7A6544;">Um FRÓN</p>
+          <h2 id="um-title" class="serif" style="margin: 0; font-size: clamp(42px, 5vw, 72px); font-weight: 500; line-height: 1.02; color: #172B27;">Reynsla sem<br>skiptir máli.</h2>
+          <p style="margin: 34px 0 0; font-size: 19px; line-height: 1.65; color: #202522; max-width: 600px;">Finnbogi Kristjánsson hefur starfað við fasteignasölu í um 40 ár. Hann er eigandi og ábyrgðarmaður FRÓN, löggiltur fasteigna-, skipa- og fyrirtækjasali og löggiltur leigumiðlari.</p>
+          <p style="margin: 20px 0 0; font-size: 17px; line-height: 1.7; color: #3E4541; max-width: 600px;">FRÓN selur fasteignir, skip og fyrirtæki og býr yfir sérþekkingu á ráðgjöf og úrlausnum sem tengjast fasteignaviðskiptum – jafnframt því að vera leigumiðlun.</p>
+          <dl style="margin: 48px 0 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 28px; border-top: 1px solid #CFCBC1; padding-top: 28px;">
+            <div>
+              <dt class="serif" style="font-size: 44px; line-height: 1; color: #172B27;">Um 40 ár</dt>
+              <dd style="margin: 10px 0 0; font-size: 14px; color: #3E4541;">í fasteignasölu</dd>
+            </div>
+            <div>
+              <dt class="serif" style="font-size: 44px; line-height: 1; color: #172B27;">Löggilding</dt>
+              <dd style="margin: 10px 0 0; font-size: 14px; color: #3E4541;">fasteigna-, skipa- og fyrirtækjasala</dd>
+            </div>
+            <div>
+              <dt class="serif" style="font-size: 44px; line-height: 1; color: #172B27;">Leigumiðlun</dt>
+              <dd style="margin: 10px 0 0; font-size: 14px; color: #3E4541;">löggiltur leigumiðlari</dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services -->
+    <section id="thjonusta" aria-labelledby="thjonusta-title" style="background: #172B27; color: #FAF9F6; padding: 140px 0;">
+      <div class="wrap">
+        <div class="reveal" style="display: flex; justify-content: space-between; align-items: flex-end; gap: 32px; flex-wrap: wrap; margin-bottom: 64px;">
+          <div>
+            <p class="eyebrow" style="margin: 0 0 18px; color: #C9B48F;">Þjónusta</p>
+            <h2 id="thjonusta-title" class="serif" style="margin: 0; font-size: clamp(42px, 5vw, 68px); font-weight: 500; line-height: 1.02;">Ein stofa.<br><em style="color: #C9B48F;">Öll viðskiptin.</em></h2>
+          </div>
+          <p style="margin: 0; max-width: 420px; color: rgba(250,249,246,.78); font-size: 17px;">Frá fyrsta verðmati til afhendingar – með löggiltan fagmann í hverju skrefi.</p>
+        </div>
+        <div style="border-bottom: 1px solid rgba(250,249,246,.16);">
+          <div class="svc reveal">
+            <span class="svc-n serif" style="font-size: 26px; color: #A38B65; transition: color .3s;">01</span>
+            <h3 class="serif" style="margin: 0; font-size: 36px; font-weight: 500; line-height: 1.1;">Fasteignasala</h3>
+            <p class="svc-d" style="margin: 0; color: rgba(250,249,246,.78); font-size: 16px;">Heildstæð umsjón með sölunni: verðmat og skoðun, söluyfirlit, auglýsingar og sýningar – og samningar og þinglýsing fram að afhendingu.</p>
+          </div>
+          <div class="svc reveal">
+            <span class="svc-n serif" style="font-size: 26px; color: #A38B65; transition: color .3s;">02</span>
+            <h3 class="serif" style="margin: 0; font-size: 36px; font-weight: 500; line-height: 1.1;">Verðmat fasteigna</h3>
+            <p class="svc-d" style="margin: 0; color: rgba(250,249,246,.78); font-size: 16px;">Ókeypis og óskuldbindandi verðmat, unnið af löggiltum fasteignasala út frá skoðun á eigninni.</p>
+          </div>
+          <div class="svc reveal">
+            <span class="svc-n serif" style="font-size: 26px; color: #A38B65; transition: color .3s;">03</span>
+            <h3 class="serif" style="margin: 0; font-size: 36px; font-weight: 500; line-height: 1.1;">Atvinnuhúsnæði</h3>
+            <p class="svc-d" style="margin: 0; color: rgba(250,249,246,.78); font-size: 16px;">Sala og ráðgjöf vegna atvinnuhúsnæðis – frá smærri rýmum til stærri eigna.</p>
+          </div>
+          <div class="svc reveal">
+            <span class="svc-n serif" style="font-size: 26px; color: #A38B65; transition: color .3s;">04</span>
+            <h3 class="serif" style="margin: 0; font-size: 36px; font-weight: 500; line-height: 1.1;">Fyrirtækjasala</h3>
+            <p class="svc-d" style="margin: 0; color: rgba(250,249,246,.78); font-size: 16px;">Sala fyrirtækja í höndum löggilts fyrirtækjasala, með trúnað og vandaðan undirbúning að leiðarljósi.</p>
+          </div>
+          <div class="svc reveal">
+            <span class="svc-n serif" style="font-size: 26px; color: #A38B65; transition: color .3s;">05</span>
+            <h3 class="serif" style="margin: 0; font-size: 36px; font-weight: 500; line-height: 1.1;">Bújarðir</h3>
+            <p class="svc-d" style="margin: 0; color: rgba(250,249,246,.78); font-size: 16px;">Sala jarða, bújarða og lóða utan þéttbýlis, þar sem staðþekking og vandað mat skipta sköpum.</p>
+          </div>
+          <div class="svc reveal">
+            <span class="svc-n serif" style="font-size: 26px; color: #A38B65; transition: color .3s;">06</span>
+            <h3 class="serif" style="margin: 0; font-size: 36px; font-weight: 500; line-height: 1.1;">Leigumiðlun</h3>
+            <p class="svc-d" style="margin: 0; color: rgba(250,249,246,.78); font-size: 16px;">Milliganga um leigu íbúðar- og atvinnuhúsnæðis í gegnum löggiltan leigumiðlara.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Valuation -->
+    <section id="verdmat" aria-labelledby="verdmat-title" style="padding: 140px 0;">
+      <div class="wrap">
+        <div class="vgrid reveal" style="background: #FFFFFF; box-shadow: 0 0 0 1px #E4E1D9;">
+          <div style="position: relative; min-height: 560px; overflow: hidden; background: #172B27;">
+            <img src="img/verdmat.jpg" alt="Hús á grænu túni við fjallshlíð undir skýjuðum himni" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: .72;">
+            <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(14,28,25,.2), rgba(14,28,25,.85));"></div>
+            <div style="position: relative; height: 100%; display: flex; flex-direction: column; justify-content: flex-end; padding: 48px; color: #FAF9F6; min-height: 560px;">
+              <p class="eyebrow" style="margin: 0 0 18px; color: #E6D9C2;">Ókeypis verðmat</p>
+              <h2 id="verdmat-title" class="serif" style="margin: 0; font-size: clamp(40px, 4.4vw, 60px); font-weight: 500; line-height: 1.02;">Hvað er eignin þín virði?</h2>
+              <p style="margin: 22px 0 0; font-size: 18px; color: rgba(250,249,246,.88); max-width: 400px;">Fáðu faglegt verðmat og ráðgjöf um næstu skref.</p>
+              <p style="margin: 28px 0 0; font-size: 15px; color: rgba(250,249,246,.8);">Viltu frekar tala við okkur? <a class="big-link" href="tel:5191212">Hringdu í 519 1212</a></p>
+              <p style="margin: 22px 0 0; font-size: 11px; color: rgba(250,249,246,.6);">Mynd: SaiKrishna Saketh Yellapragada / Unsplash – til skýringar</p>
+            </div>
+          </div>
+          <div style="padding: 56px 56px 48px;">
+            
+              <form id="verdmat-form" style="display: flex; flex-direction: column; gap: 20px;">
+                <p style="margin: 0; font-size: 13px; color: #5B625E; background: #F1F0EC; padding: 10px 14px;">Sýnishornsform – ekki tengt. Engin gögn eru send í þessari hugmynd.</p>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px;">
+                  <div class="inp"><label for="v-nafn">Nafn</label><input id="v-nafn" name="nafn" type="text" autocomplete="name" required></div>
+                  <div class="inp"><label for="v-simi">Símanúmer</label><input id="v-simi" name="simi" type="tel" autocomplete="tel" required></div>
+                </div>
+                <div class="inp"><label for="v-netfang">Netfang</label><input id="v-netfang" name="netfang" type="email" autocomplete="email" required></div>
+                <div class="inp"><label for="v-heimili">Heimilisfang eignar</label><input id="v-heimili" name="heimilisfang" type="text" autocomplete="street-address" required></div>
+                <div class="inp"><label for="v-skilabod">Skilaboð</label><textarea id="v-skilabod" name="skilabod" rows="4" style="resize: vertical;"></textarea></div>
+                <div style="display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin-top: 6px;">
+                  <button class="btn btn-dark" type="submit" style="min-height: 56px;">Óska eftir verðmati <span class="arr" aria-hidden="true">→</span></button>
+                  <span style="font-size: 13px; color: #5B625E;">Verðmatið er ókeypis og óskuldbindandi.</span>
+                </div>
+              </form>
+            
+            
+              <div id="verdmat-sent" role="status" hidden style="display: flex; flex-direction: column; justify-content: center; gap: 18px; min-height: 460px;">
+                <p class="eyebrow" style="margin: 0; color: #7A6544;">Sýnishorn</p>
+                <h3 class="serif" style="margin: 0; font-size: 42px; font-weight: 500; line-height: 1.05; color: #172B27;">Svona myndi staðfestingin líta út.</h3>
+                <p style="margin: 0; font-size: 17px; color: #3E4541; max-width: 440px;">Engin gögn voru send. Á opinberum vef færi beiðnin beint til FRÓN. Til að fá verðmat núna: hringdu í <a href="tel:5191212">519 1212</a> eða sendu póst á <a href="mailto:finnbogi@fron.is">finnbogi@fron.is</a>.</p>
+                <div><button class="btn" type="button" id="verdmat-reset" style="border-color: #172B27; color: #172B27; background: transparent;">Til baka í formið</button></div>
+              </div>
+            
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Team -->
+    <section id="starfsfolk" aria-labelledby="team-title" style="padding: 0 0 140px;">
+      <div class="wrap">
+        <div class="reveal" style="display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; flex-wrap: wrap; margin-bottom: 56px; padding-top: 100px; border-top: 1px solid #E4E1D9;">
+          <div>
+            <p class="eyebrow" style="margin: 0 0 16px; color: #7A6544;">Fólkið okkar</p>
+            <h2 id="team-title" class="serif" style="margin: 0; font-size: clamp(42px, 5vw, 68px); font-weight: 500; line-height: 1; color: #172B27;">Starfsfólk</h2>
+          </div>
+          <a href="https://www.fron.is/starfsfolk" target="_blank" rel="noopener" style="font-size: 15px; font-weight: 600; padding: 12px 0;">Allt starfsfólk á fron.is →</a>
+        </div>
+        <div class="team">
+          <article class="person reveal">
+            <div class="pp"><img src="img/finnbogi.jpg" alt="Finnbogi Kristjánsson" loading="lazy"></div>
+            <h3 class="serif" style="margin: 24px 0 6px; font-size: 30px; font-weight: 500; line-height: 1.1; color: #172B27;">Finnbogi Kristjánsson</h3>
+            <p style="margin: 0; font-size: 15px; color: #3E4541;">Lögg. fasteigna-, skipa- og fyrirtækjasali. Eigandi og ábyrgðarmaður.</p>
+            <p style="margin: 14px 0 0; font-size: 15px; display: flex; gap: 18px; flex-wrap: wrap;"><a href="tel:8971212">897 1212</a><a href="mailto:finnbogi@fron.is">finnbogi@fron.is</a></p>
+          </article>
+          <article class="person reveal">
+            <div class="pp"><img src="img/ragnheidur.jpg" alt="Ragnheiður Kr. Finnbogadóttir" loading="lazy"></div>
+            <h3 class="serif" style="margin: 24px 0 6px; font-size: 30px; font-weight: 500; line-height: 1.1; color: #172B27;">Ragnheiður Kr. Finnbogadóttir</h3>
+            <p style="margin: 0; font-size: 15px; color: #3E4541;">Lögfræðingur, rekstrarstjóri.</p>
+            <p style="margin: 14px 0 0; font-size: 15px;"><a href="mailto:ragnheidur@fron.is">ragnheidur@fron.is</a></p>
+          </article>
+          <article class="person reveal">
+            <div class="pp"><img src="img/olafur.jpg" alt="Ólafur Árni Halldórsson" loading="lazy"></div>
+            <h3 class="serif" style="margin: 24px 0 6px; font-size: 30px; font-weight: 500; line-height: 1.1; color: #172B27;">Ólafur Árni Halldórsson</h3>
+            <p style="margin: 0; font-size: 15px; color: #3E4541;">Löggiltur fasteigna- og skipasali.</p>
+            <p style="margin: 14px 0 0; font-size: 15px;"><a href="mailto:olafur@fron.is">olafur@fron.is</a></p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Contact + footer -->
+  <footer id="samband" aria-labelledby="samband-title" style="background: #172B27; color: #FAF9F6; padding: 140px 0 40px;">
+    <div class="wrap">
+      <div class="contact">
+        <div class="reveal">
+          <p class="eyebrow" style="margin: 0 0 18px; color: #C9B48F;">Hafa samband</p>
+          <h2 id="samband-title" class="serif" style="margin: 0; font-size: clamp(42px, 5.4vw, 76px); font-weight: 500; line-height: 1.02;">Við tökum vel<br>á móti þér.</h2>
+          <div style="margin-top: 56px; display: flex; flex-direction: column; gap: 18px;">
+            <p class="serif" style="margin: 0; font-size: clamp(30px, 3.4vw, 44px); line-height: 1.15;"><a class="big-link" href="tel:5191212">519 1212</a></p>
+            <p class="serif" style="margin: 0; font-size: clamp(24px, 2.6vw, 34px); line-height: 1.2;"><a class="big-link" href="mailto:finnbogi@fron.is">finnbogi@fron.is</a></p>
+          </div>
+        </div>
+        <div class="reveal" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; align-content: end;">
+          <div>
+            <p class="eyebrow" style="margin: 0 0 14px; color: #C9B48F;">Skrifstofa</p>
+            <address style="font-style: normal; font-size: 17px; line-height: 1.7;">FRÓN fasteignamiðlun<br>Háaleitisbraut 109<br>108 Reykjavík</address>
+            <a href="https://www.google.com/maps/search/?api=1&amp;query=H%C3%A1aleitisbraut%20109%2C%20108%20Reykjav%C3%ADk" target="_blank" rel="noopener" class="foot-link" style="display: inline-block; margin-top: 10px; border-bottom: 1px solid rgba(250,249,246,.35); line-height: 1.6;">Sjá á korti →</a>
+          </div>
+          <div>
+            <p class="eyebrow" style="margin: 0 0 14px; color: #C9B48F;">Símar</p>
+            <p style="margin: 0; font-size: 17px; line-height: 1.7;">Skrifstofa: <a class="big-link" href="tel:5191212">519 1212</a><br>Finnbogi: <a class="big-link" href="tel:8971212">897 1212</a></p>
+            <p class="eyebrow" style="margin: 28px 0 14px; color: #C9B48F;">Opnunartími</p>
+            <p style="margin: 0; font-size: 17px;">Mán–fös 09:00–16:30</p>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top: 120px; padding-top: 48px; border-top: 1px solid rgba(250,249,246,.16); display: flex; justify-content: space-between; gap: 48px; flex-wrap: wrap;">
+        <div style="display: flex; flex-direction: column; line-height: 1;">
+          <span style="font-family: Jost, sans-serif; font-size: 26px; letter-spacing: .32em;">FRÓN</span>
+          <span style="font-family: Jost, sans-serif; font-size: 10px; letter-spacing: .27em; margin-top: 7px; color: rgba(250,249,246,.7);">Fasteignamiðlun</span>
+        </div>
+        <nav aria-label="Aðrar síður á fron.is" style="display: flex; gap: 56px; flex-wrap: wrap;">
+          <div style="display: flex; flex-direction: column;">
+            <a class="foot-link" href="https://www.fron.is/soluskra" target="_blank" rel="noopener">Söluskrá</a>
+            <a class="foot-link" href="https://www.fron.is/verdmat" target="_blank" rel="noopener">Verðmat</a>
+            <a class="foot-link" href="https://www.fron.is/um-okkur" target="_blank" rel="noopener">Um okkur</a>
+            <a class="foot-link" href="https://www.fron.is/starfsfolk" target="_blank" rel="noopener">Starfsfólk</a>
+          </div>
+          <div style="display: flex; flex-direction: column;">
+            <a class="foot-link" href="https://www.fron.is/gjaldskra" target="_blank" rel="noopener">Gjaldskrá</a>
+            <a class="foot-link" href="https://www.fron.is/upplysingar" target="_blank" rel="noopener">Upplýsingar</a>
+            <a class="foot-link" href="https://www.fron.is/personuvernd" target="_blank" rel="noopener">Persónuvernd</a>
+            <a class="foot-link" href="https://www.fron.is/skilmalar" target="_blank" rel="noopener">Skilmálar</a>
+          </div>
+        </nav>
+      </div>
+      <p style="margin: 56px 0 0; font-size: 12.5px; line-height: 1.7; color: rgba(250,249,246,.62); max-width: 860px;">Hugmynd að endurhönnun forsíðu, unnin af Garðar Vefur sem óskuldbindandi sýnishorn. Þetta er ekki opinber vefur FRÓN fasteignamiðlunar og hönnunin hefur ekki verið samþykkt af FRÓN. Eignir, myndir af starfsfólki og upplýsingar eru sóttar af fron.is; myndir í hetjuhluta og verðmatshluta eru af Unsplash og sýna ekki eignir á skrá.</p>
+    </div>
+  </footer>
+</div>
+
+<script>
+(function () {
+  var btn = document.querySelector('.menu-btn');
+  var panel = document.getElementById('farsimavalmynd');
+  function setMenu(open) {
+    panel.hidden = !open;
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    btn.setAttribute('aria-label', open ? 'Loka valmynd' : 'Opna valmynd');
+  }
+  btn.addEventListener('click', function () { setMenu(panel.hidden); });
+  panel.querySelectorAll('[data-close-menu]').forEach(function (a) { a.addEventListener('click', function () { setMenu(false); }); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !panel.hidden) { setMenu(false); btn.focus(); } });
+
+  var form = document.getElementById('verdmat-form');
+  var sent = document.getElementById('verdmat-sent');
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    form.hidden = true; sent.hidden = false; sent.focus && sent.setAttribute('tabindex', '-1'); sent.focus();
+  });
+  document.getElementById('verdmat-reset').addEventListener('click', function () {
+    sent.hidden = true; form.hidden = false; form.querySelector('input').focus();
+  });
+})();
+</script>
+</body>
+</html>
